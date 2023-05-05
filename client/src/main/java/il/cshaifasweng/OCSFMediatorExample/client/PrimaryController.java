@@ -97,6 +97,8 @@ public class PrimaryController {
 		MessageTF.clear();
 		DataFromServerTF.clear();
 		msgId=0;
+		submitterID1.setText("324155878");
+		submitterID2.setText("314931163");
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
 		Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
 			LocalTime currentTime = LocalTime.now();
@@ -107,7 +109,7 @@ public class PrimaryController {
 		clock.setCycleCount(Animation.INDEFINITE);
 		clock.play();
 		try {
-			Message message = new Message(msgId, "add client");
+			Message message = new Message(msgId++, "add client");
 			SimpleClient.getClient().sendToServer(message);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
